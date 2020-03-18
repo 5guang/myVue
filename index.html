@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <p>{{msg}}</p>
+    <p>{{person.name}}</p>
+    <p>{{person.age}}</p>
+    <input type="text" z-model="msg">
+    <p z-html="html"></p>
+    <p z-text="person.age"></p>
+    <button @click="handleClick">click me</button>
+  </div>
+  <script src="./utils.js"></script>
+  <script src="./Compile.js"></script>
+  <script src="./ZVue.js"></script>
+  <script>
+    const app = new ZVue({
+      el: '#app',
+      data: {
+        msg: 'hello',
+        person: {
+          name: '5guang',
+          age: 13
+        },
+        html: '<span style="color: red">你好</span>'
+      },
+      methods: {
+        handleClick() {
+          console.log(this)
+        }
+      }
+    });
+
+  </script>
+</body>
+
+</html>
